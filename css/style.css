@@ -1,0 +1,150 @@
+@font-face {
+    font-family: "graphik-arabic-medium";
+    src: url("../assets/fonts/Graphik_Arabic_Medium.otf");
+}
+
+body{
+    margin: 0%;
+}
+
+.screen-space{
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.turn-div{
+    background-color: #99e6ff;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    transition: 200ms;
+
+    display: none;
+
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+}
+
+.turn-image{
+    width: auto;
+    height: 1rem;
+    pointer-events: none;
+}
+
+.turn-image-O{
+    display: none;
+}
+
+.turn-image-X{
+    display: none;
+}
+
+.turn-header{
+    font-family: "graphik-arabic-medium";
+    font-size: 1.4rem;
+    margin: 0%;
+}
+
+.playground{
+    padding: 1.5rem;
+    border-radius: 1rem;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    transition: 100ms;
+}
+
+.start-div{
+    background-color: #ffffff;
+    border-radius: 0.4rem;
+    border: 0.1rem solid black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button-img{
+    font-family: "graphik-arabic-medium";
+    font-size: 4rem;
+    font-display:swap;
+
+    width: 7rem;
+    height: auto;
+    /* height: 5rem; */
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+.game-button{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #acacac;
+    transition: 100ms;
+    background-color: #f0f0f0;
+}
+
+.game-button:hover{
+    background-color: #dbdbdb;
+}
+
+.refresh-div{
+    margin-top: 2rem;
+}
+
+.refresh-button{
+    background-color: #000000;
+    border-radius: 2rem;
+    border: none;
+}
+
+.refresh-button-img{
+    width: 2rem;
+    height: auto;
+    pointer-events: none;
+}
+
+.image{
+    width: 70%;
+    height: 70%;
+    pointer-events: none;
+}
+
+/* ---------- */
+.red-block{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #acacac;
+    transition: 100ms;
+    background-color: #ff9d9c;
+}
+.red-block:hover{
+    background-color: #ff9d9c;
+}
+
+.blue-block{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #acacac;
+    transition: 100ms;
+    background-color: #99e6ff;
+}
+.blue-block{
+    background-color: #99e6ff;
+}

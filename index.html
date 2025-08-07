@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="screen-space">
+        <div class="turn-div" id="turn-div">
+            <img src="assets/images/O.png" class="turn-image turn-image-O" id="turn-image-O">
+            <img src="assets/images/X.png" class="turn-image turn-image-X" id="turn-image-X">
+            <h3 class="turn-header">'s turn</h3>
+        </div>
+        
+        
+        <div class="playground" id="playground">
+            <div class="start-div" id="start-div">
+                <div onclick="start_display_none()">
+                    <img src="assets/images/play_icon.png" class="start-button-img">
+                </div>
+            </div>
+
+            <button class="game-button" id="button-1" onclick="choose_block('button-1')"></button>
+            <button class="game-button" id="button-2" onclick="choose_block('button-2')"></button>
+            <button class="game-button" id="button-3" onclick="choose_block('button-3')"></button>
+            <button class="game-button" id="button-4" onclick="choose_block('button-4')"></button>
+            <button class="game-button" id="button-5" onclick="choose_block('button-5')"></button>
+            <button class="game-button" id="button-6" onclick="choose_block('button-6')"></button>
+            <button class="game-button" id="button-7" onclick="choose_block('button-7')"></button>
+            <button class="game-button" id="button-8" onclick="choose_block('button-8')"></button>
+            <button class="game-button" id="button-9" onclick="choose_block('button-9')"></button>
+        </div>
+
+        <div class="refresh-div">
+            <button class="refresh-button" onclick=""><img src="assets/images/refresh.png" class="refresh-button-img"></button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
