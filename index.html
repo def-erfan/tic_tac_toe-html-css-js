@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="screen-space">
+        <div class="turn-div-fake-space" id="turn-div-fake-space"></div>
         <div class="turn-div" id="turn-div">
             <img src="assets/images/O.png" class="turn-image turn-image-O" id="turn-image-O">
             <img src="assets/images/X.png" class="turn-image turn-image-X" id="turn-image-X">
@@ -33,10 +34,24 @@
             <button class="game-button" id="button-9" onclick="choose_block('button-9')"></button>
         </div>
 
-        <div class="refresh-div">
+        <div class="refresh-div" onclick="reset_game()">
             <button class="refresh-button" onclick=""><img src="assets/images/refresh.png" class="refresh-button-img"></button>
         </div>
     </div>
+
+    <!-- banners -->
+    <div class="banner not-draw-banner blue-win-banner" id="blue-win-banner">
+        <img src="assets/images/crown.png" class="crown-img">
+        <h1 class="banner-title blue-banner-title">BLUE WON!</h1>
+    </div>
+    <div class="banner not-draw-banner red-win-banner" id="red-win-banner">
+        <img src="assets/images/crown.png" class="crown-img">
+        <h1 class="banner-title red-banner-title">RED WON!</h1>
+    </div>
+    <div class="banner draw-banner" id="draw-banner">
+        <h1 class="banner-title draw-banner-title">DRAW!</h1>
+    </div>
+
     
     <script src="js/script.js"></script>
 </body>

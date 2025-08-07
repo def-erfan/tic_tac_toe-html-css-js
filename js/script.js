@@ -36,6 +36,7 @@ function choose_block(id){
         }
         
     }
+    execute_game_rules()
 }
 
 function change_playground_color(){
@@ -60,19 +61,274 @@ function change_playground_color(){
 }
 
 function reset_game(){
-    console.log("ok!!!");
-    
+    setTimeout(()=>{
+        console.log("worked!!!!");
+        for(let i=1;i<=9;i++){
+            console.log("button-" + i);
+            let element = document.getElementById("button-" + i)
+            element.setAttribute("class", "game-button")
+            element.innerHTML = ''
+        }
+        set_first_move()
+        change_playground_color()
+    }, 100)
+    for(let i=1;i<=9;i++){
+        console.log("button-" + i);
+        let element = document.getElementById("button-" + i)
+        element.setAttribute("class", "game-button")
+        element.innerHTML = ''
+    }
 }
 
 function start_display_none(){
+    change_playground_color()
     document.getElementById("start-div").style.display = "none"
+    document.getElementById("turn-div-fake-space").style.display = "none"
     let turn_div = document.getElementById("turn-div")
     turn_div.style.display = "flex"
-
 }
 
-function reset(params) {
-    
+
+function win_message(winner){
+    let message = document.getElementById(winner)
+    message.style.display = "flex"
+    message.style.animation = "open-banner 0.5s forwards"
+    message.style.animationPlayState = "running"
+    setTimeout(()=>{
+        message.style.animation = "close-banner 0.5s forwards"
+        message.style.animationPlayState = "running"
+        
+        setTimeout(()=>{
+        message.style.display = "none"
+        }, 500)
+    }, 5000)
 }
 
-change_playground_color()
+function check_rows_complete(){
+    // ----------
+    let bag = []
+    for(let i=1;i<=3;i++){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0;
+    }
+
+    bag = []
+    for(let i=1;i<=3;i++){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+
+    // ----------
+    bag = []
+    for(let i=4;i<=6;i++){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=4;i<=6;i++){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+    // ----------
+    bag = []
+    for(let i=7;i<=9;i++){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=7;i<=9;i++){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+}
+
+function check_columns_complete(){
+    // ----------
+    let bag = []
+    for(let i=1;i<=7;i+=3){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=1;i<=7;i+=3){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+
+    // ----------
+    bag = []
+    for(let i=2;i<=8;i+=3){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=2;i<=8;i+=3){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+    // ----------
+    bag = []
+    for(let i=3;i<=9;i+=3){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=3;i<=9;i+=3){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+}
+
+function check_diagonals_complete(){
+    // ----------
+    let bag = []
+    for(let i=1;i<=9;i+=4){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=1;i<=9;i+=4){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+
+    // ----------
+    bag = []
+    for(let i=3;i<=7;i+=2){
+        if (document.getElementById("button-" + i).className == "blue-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("blue-win-banner");
+        return 0
+    }
+
+    bag = []
+    for(let i=3;i<=7;i+=2){
+        if (document.getElementById("button-" + i).className == "red-block"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 3){
+        reset_game();
+        win_message("red-win-banner");
+        return 0
+    }
+}
+
+function execute_game_rules(){
+    check_rows_complete()
+    check_columns_complete()
+    check_diagonals_complete()
+
+    let bag = []
+    for(let i=1;i<=9;i++){
+        if (document.getElementById("button-" + i).className != "game-button"){
+            bag.push(true)
+        }
+    }
+    if (bag.length == 9){
+        console.log("draw");        
+        reset_game();
+        win_message("draw-banner");
+    }
+}
+
+
+// change_playground_color()
+
+// setInterval(execute_game_rules, 2000)
+
+// win_message("draw-banner")

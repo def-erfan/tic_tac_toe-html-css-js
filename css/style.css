@@ -5,6 +5,7 @@
 
 body{
     margin: 0%;
+    position: relative;
 }
 
 .screen-space{
@@ -15,6 +16,10 @@ body{
     flex-direction: column;
     justify-content: start;
     align-items: center;
+}
+
+.turn-div-fake-space{
+    height: 4rem;
 }
 
 .turn-div{
@@ -57,6 +62,7 @@ body{
     padding: 1.5rem;
     border-radius: 1rem;
     position: relative;
+    background-color: #000000;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -65,12 +71,13 @@ body{
 }
 
 .start-div{
-    background-color: #ffffff;
+    background-color: #ffffff86;
     border-radius: 0.4rem;
     border: 0.1rem solid black;
     position: absolute;
     width: 100%;
     height: 100%;
+    backdrop-filter: blur(0.5rem);
 
     display: flex;
     justify-content: center;
@@ -147,4 +154,88 @@ body{
 }
 .blue-block{
     background-color: #99e6ff;
+}
+
+/* banners */
+
+.banner{
+    background-color: #000000;
+    width: 25rem;
+    height: 10rem;
+    border-radius: 4rem;
+    transition: 1s;
+    /* box-sizing: border-box;
+    border: 0.3rem solid #f9c919; */
+
+    position: fixed;
+    top: -4rem;
+    left: 50%;
+    transform: translate(-50%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#draw-banner{
+    animation: open-banner 0.5s forwards;
+}
+
+@keyframes open-banner{
+    0% { opacity: 0; width: 0rem; height: 0rem; top: -4rem; }
+    100% { opacity: 1; width: 25rem; height: 10rem; top: 11rem; }
+}
+
+@keyframes close-banner{
+    0% { opacity: 1; width: 25rem; height: 10rem; top: 11rem; }
+    100% { opacity: 0; width: 0rem; height: 0rem; top: -4rem; }
+}
+
+.banner-title{
+    font-family: "graphik-arabic-medium";
+    font-size: 3rem;
+    color: white;
+    margin:0%;
+}
+
+.crown-img{
+    width: 7rem;
+    position: absolute;
+    bottom: 8rem;
+}
+
+
+.not-draw-banner{
+    box-sizing: border-box;
+    border: 0.3rem solid #f9c919;
+}
+
+.blue-win-banner{
+    background-color: #99e6ff;
+    display: none;
+}
+
+.blue-banner-title{
+    color: #3ec5f4;
+}
+
+.red-win-banner{
+    background-color: #ff9d9c;
+    display: none;
+}
+
+.red-banner-title{
+    color: #ff615e;
+}
+
+.draw-banner{
+    background-color: #d8d8d8;
+    box-sizing: border-box;
+    border: 1rem solid #a7a7a7;
+    display: none;
+}
+
+.draw-banner-title{
+    color: #a7a7a7;
 }
